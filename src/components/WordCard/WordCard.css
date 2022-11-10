@@ -15,20 +15,22 @@
   height: 90%;
 }
 
+.team0 {
+  background: tan;
+}
 .team1 {
   background: #caaaf3;
 }
 .team2 {
   background: aquamarine;
 }
-.team0 {
-  background: tan;
-}
-.team4 {
-  background: black;
+.team3 {
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+  color: white;
 }
 
 button {
+  cursor: pointer;
   position: absolute;
   width: 100px;
   height: 100px;

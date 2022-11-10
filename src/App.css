@@ -8,7 +8,7 @@ main {
 .card-grid {
   margin: auto;
   display: grid;
-  grid-gap: 1vw;
+  grid-gap: 1vh;
   grid-template-columns: repeat(5, 15vw);
-  grid-template-rows: repeat(5, 10vw);
+  grid-template-rows: repeat(5, 19vh);
 }

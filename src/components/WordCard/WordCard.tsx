@@ -2,20 +2,19 @@ import { FC, useState } from "react";
 import "./WordCard.css";
 
 interface Props {
-  keyValue: number;
   word: string;
   wordTeam: number;
 }
 
-const WordCard: FC<Props> = ({ keyValue, word, wordTeam }) => {
+const WordCard: FC<Props> = ({ word, wordTeam }) => {
   const [cardClass, setCardClass] = useState("card");
+
+  function handleClick() {
+    setCardClass(`card team${wordTeam}`);
+  }
+
   return (
-    <div
-      className={cardClass}
-      onClick={() => {
-        setCardClass(`card team${wordTeam}`);
-      }}
-    >
+    <div onClick={handleClick} className={cardClass}>
       {word.toUpperCase()}
     </div>
   );
