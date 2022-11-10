@@ -61,7 +61,14 @@ const App = () => {
           );
         })}
       </div>
-      <button>Reset</button>
+      <button
+        onClick={() => {
+          setWords(createWords(wordBank));
+          setWordTeams(createWordTeams());
+        }}
+      >
+        New Game
+      </button>
     </main>
   );
 };

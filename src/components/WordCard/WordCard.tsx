@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import "./WordCard.css";
 
 interface Props {
@@ -7,6 +7,10 @@ interface Props {
 }
 
 const WordCard: FC<Props> = ({ word, wordTeam }) => {
+  useEffect(() => {
+    setCardClass("card");
+  }, [word, wordTeam]);
+
   const [cardClass, setCardClass] = useState("card");
 
   function handleClick() {
