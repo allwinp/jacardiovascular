@@ -3,6 +3,7 @@
   margin: auto;
   height: 80%;
   width: 80%;
+  border: 1px solid black;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,17 +26,6 @@
   background: aquamarine;
 }
 .team3 {
-  background-image: linear-gradient(to right, #434343 0%, black 100%);
+  background: black;
   color: white;
-}
-
-button {
-  cursor: pointer;
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  right: 0px;
-  bottom: 0;
-  top: 0;
-  margin: auto;
 }

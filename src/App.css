@@ -12,3 +12,18 @@ main {
   grid-template-columns: repeat(5, 15vw);
   grid-template-rows: repeat(5, 19vh);
 }
+
+button {
+  cursor: pointer;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  right: 0px;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+}
+
+.spymaster-button {
+  top: 200px;
+}

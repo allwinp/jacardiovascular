@@ -4,13 +4,65 @@ import { useState } from "react";
 import "./App.css";
 
 function createWordTeams() {
-  return [Array(8).fill(0), Array(8).fill(1), Array(8).fill(2), 3]
+  // 8 neutral, 8 words for team1, 8 words for team 2, 1 black word
+  return [Array(7).fill(0), Array(9).fill(1), Array(8).fill(2), 3]
     .flat()
     .sort(function (a, b) {
       return Math.random() > 0.5 ? 1 : -1;
     });
 }
+
 const wordBank = [
+  "writing",
+  "ad",
+  "feedback",
+  "television",
+  "chemistry",
+  "menu",
+  "area",
+  "power",
+  "guest",
+  "revolution",
+  "awareness",
+  "software",
+  "king",
+  "committee",
+  "inspector",
+  "percentage",
+  "relationship",
+  "editor",
+  "bread",
+  "connection",
+  "situation",
+  "orange",
+  "wife",
+  "mom",
+  "university",
+  "manager",
+  "bathroom",
+  "artisan",
+  "homework",
+  "reception",
+  "bonus",
+  "analyst",
+  "movie",
+  "variation",
+  "dinner",
+  "scene",
+  "person",
+  "teaching",
+  "dealer",
+  "penalty",
+  "coffee",
+  "reaction",
+  "advice",
+  "son",
+  "buyer",
+  "math",
+  "country",
+  "satisfaction",
+  "midnight",
+  "industry",
   "language",
   "breath",
   "stretch",
@@ -39,14 +91,17 @@ const wordBank = [
 ];
 
 function createWords(wordBank: string[]) {
-  return wordBank.sort((a: string, b: string) =>
-    Math.random() > 0.5 ? 1 : -1
-  );
+  const tempArr = [];
+  for (let i = 0; i <= 24; i++) {
+    tempArr.push(wordBank[Math.floor(Math.random() * wordBank.length)]);
+  }
+  return tempArr;
 }
 
 const App = () => {
   const [words, setWords] = useState(createWords(wordBank));
   const [wordTeams, setWordTeams] = useState(createWordTeams());
+  const [spymaster, setSpymaster] = useState(false);
 
   return (
     <main>
@@ -57,6 +112,7 @@ const App = () => {
               key={index}
               word={words[index]}
               wordTeam={wordTeams[index]}
+              spymaster={spymaster}
             />
           );
         })}
@@ -65,9 +121,18 @@ const App = () => {
         onClick={() => {
           setWords(createWords(wordBank));
           setWordTeams(createWordTeams());
+          setSpymaster(false);
         }}
       >
         New Game
+      </button>
+      <button
+        className="spymaster-button"
+        onClick={() => {
+          spymaster === false ? setSpymaster(true) : setSpymaster(false);
+        }}
+      >
+        Spymaster
       </button>
     </main>
   );
