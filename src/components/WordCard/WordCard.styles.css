@@ -1,5 +1,6 @@
 .card {
   background: gray;
+  color: rgb(17, 24, 39);
   margin: auto;
   height: 80%;
   width: 80%;
@@ -27,5 +28,5 @@
 }
 .team3 {
   background: black;
-  color: white;
+  color: red;
 }

@@ -102,9 +102,13 @@ const App = () => {
   const [words, setWords] = useState(createWords(wordBank));
   const [wordTeams, setWordTeams] = useState(createWordTeams());
   const [spymaster, setSpymaster] = useState(false);
+  const [scoreTeam1, setScoreTeam1] = useState(9);
+  const [scoreTeam2, setScoreTeam2] = useState(8);
 
   return (
     <main>
+      <div className="score-card team1">{scoreTeam1}</div>
+
       <div className="card-grid">
         {words.map((word, index) => {
           return (
@@ -113,27 +117,36 @@ const App = () => {
               word={words[index]}
               wordTeam={wordTeams[index]}
               spymaster={spymaster}
+              scoreTeam1={scoreTeam1}
+              scoreTeam2={scoreTeam2}
+              setScoreTeam1={setScoreTeam1}
+              setScoreTeam2={setScoreTeam2}
             />
           );
         })}
       </div>
-      <button
-        onClick={() => {
-          setWords(createWords(wordBank));
-          setWordTeams(createWordTeams());
-          setSpymaster(false);
-        }}
-      >
-        New Game
-      </button>
-      <button
-        className="spymaster-button"
-        onClick={() => {
-          spymaster === false ? setSpymaster(true) : setSpymaster(false);
-        }}
-      >
-        Spymaster
-      </button>
+      <div className="score-card team2">{scoreTeam2}</div>
+      <div className="buttons-container">
+        <button
+          onClick={() => {
+            setWords(createWords(wordBank));
+            setWordTeams(createWordTeams());
+            setSpymaster(false);
+            setScoreTeam1(9);
+            setScoreTeam2(8);
+          }}
+        >
+          New Game
+        </button>
+        <button
+          className="spymaster-button"
+          onClick={() => {
+            spymaster === false ? setSpymaster(true) : setSpymaster(false);
+          }}
+        >
+          Spymaster
+        </button>
+      </div>
     </main>
   );
 };
