@@ -1,4 +1,7 @@
 import { FC, useState, useEffect } from "react";
+
+import { Text, Paper, Center } from "@mantine/core";
+
 import "./WordCard.styles.css";
 
 interface Props {
@@ -20,8 +23,13 @@ const WordCard: FC<Props> = ({
   setScoreTeam1,
   setScoreTeam2,
 }) => {
+  const [clicked, setClicked] = useState(false);
   useEffect(() => {
     setCardClass("card");
+  }, [word, wordTeam]);
+
+  useEffect(() => {
+    setClicked(false);
   }, [word, wordTeam]);
 
   useEffect(() => {
@@ -33,18 +41,23 @@ const WordCard: FC<Props> = ({
   const [cardClass, setCardClass] = useState("card");
 
   function handleClick() {
-    setCardClass(`card team${wordTeam}`);
-    if (wordTeam === 1) {
-      setScoreTeam1(scoreTeam1 - 1);
-    } else if (wordTeam === 2) {
-      setScoreTeam2(scoreTeam2 - 1);
+    if (!clicked) {
+      setClicked(true);
+      setCardClass(`card team${wordTeam}`);
+      if (wordTeam === 1) {
+        setScoreTeam1(scoreTeam1 - 1);
+      } else if (wordTeam === 2) {
+        setScoreTeam2(scoreTeam2 - 1);
+      }
     }
   }
 
   return (
-    <div onClick={handleClick} className={cardClass}>
-      {word.toUpperCase()}
-    </div>
+    <Paper onClick={handleClick} shadow="xs" p="md" className={cardClass}>
+      <Text ta={"center"} sx={{ fontFamily: "Greycliff CF, sans-serif" }}>
+        {word.toUpperCase()}{" "}
+      </Text>
+    </Paper>
   );
 };
 

@@ -1,20 +1,13 @@
 .card {
   background: gray;
   color: rgb(17, 24, 39);
-  margin: auto;
-  height: 80%;
-  width: 80%;
-  border: 1px solid black;
+  height: 14vh;
+  width: 14vw;
   display: flex;
   align-items: center;
   justify-content: center;
   user-select: none; /* Standard */
-}
-
-.card:hover {
   cursor: pointer;
-  width: 90%;
-  height: 90%;
 }
 
 .team0 {
